@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+<h1>Singnup Page</h1>
+<input type="text" id="name" placeholder="name">
+<input type="text" id="email" placeholder="email">
+<input type="password" id="pass" placeholder="password">
+<input type="text"id="age">
+<button onclick="sinFun()">Sign Up</button>
+    </div>
+</body>
+</html>
+<script>
+const sinFun=()=>{
+    const payload={
+        name:document.getElementById("name").value,
+        email:document.getElementById("email").value,
+        password:document.getElementById("pass").value,
+        age:document.getElementById("age").value
+
+    }
+    fetch("https://shy-jodhpurs-cod.cyclic.app/user/register",{
+        method:"POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(payload)
+    })
+    .then(res=>console.log(res))
+    .catch(err=>console.log(err))
+
+}
+</script>
